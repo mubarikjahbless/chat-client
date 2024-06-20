@@ -6,13 +6,12 @@ import { IsNotLoggedInGuard } from './guards/is-not-logged-in.guard';
 const routes: Routes = [
   {
     path: '',
-    canActivate: [IsLoggedInGuard], // <1>
+    canActivate: [IsLoggedInGuard],
     children: [
       {path: '', redirectTo: 'chat', pathMatch: 'full'},
       {path: 'chat', loadChildren: () => import('./chat/chat.module').then(m => m.ChatModule)},
       {path: 'chat-room', loadChildren: () => import('./pages/chat-room/chat-room.module').then(m => m.ChatRoomPageModule)},
       {path: 'chat-private', loadChildren: () => import('./pages/chat-private/chat-private.module').then(m => m.ChatPrivatePageModule)},
-      {path: 'select-room', loadChildren: () => import('./pages/select-room/select-room.module').then(m => m.SelectRoomPageModule)},
       ]
       },
   {path: 'login', loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule), canActivate: [IsNotLoggedInGuard]}, // <2>
