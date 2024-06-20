@@ -1,0 +1,70 @@
+<div class="drawer-container">
+  <div  class="side-bar">
+    <app-sidebar></app-sidebar>
+  </div>
+  <!-- <mat-drawer-content> -->
+    <div class="main-content">
+      <app-header></app-header>
+      <app-chat-area class="chat-area"></app-chat-area>
+    </div>
+  <!-- </mat-drawer-content> -->
+</div>
+
+
+
+<!-- <mat-drawer-container class="drawer-container">
+  <mat-drawer #sidenav mode="side" [(opened)]="isSidenavOpen" class="side-bar">
+    <mat-toolbar>
+      <span>Chat</span>
+    </mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item>All Unread</a>
+      <a mat-list-item>All Threads</a>
+      <a mat-list-item>Starred</a>
+      <a mat-list-item>Channels</a>
+      <a mat-list-item>Direct Messages</a>
+    </mat-nav-list>
+  </mat-drawer>
+
+  <mat-drawer-content>
+
+  <div class="main-content">
+    <mat-toolbar>
+      <span>Chat Application</span>
+      <button mat-icon-button>
+        <mat-icon>phone</mat-icon>
+      </button>
+      <button mat-icon-button (click)="toggleInfo()">
+        <mat-icon>info</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon>settings</mat-icon>
+      </button>
+      <mat-form-field class="search-box">
+        <input matInput placeholder="Search">
+      </mat-form-field>
+    </mat-toolbar>
+    <div class="chat-container">
+      <div class="message left" *ngFor="let msg of incomingMessages">
+        <div class="message-content">{{ msg }}</div>
+      </div>
+      <div class="message right" *ngFor="let msg of outgoingMessages">
+        <div class="message-content">{{ msg }}</div>
+      </div>
+    </div>
+
+    <div class="chat-input">
+      <mat-form-field class="input-field">
+        <textarea matInput placeholder="Type your message..."></textarea>
+      </mat-form-field>
+      <button mat-icon-button>
+        <mat-icon>send</mat-icon>
+      </button>
+    </div>
+
+    <mat-sidenav #infoSidenav mode="side" position="end" [(opened)]="infoOpen">
+      <mat-toolbar>Channel Info</mat-toolbar>
+    </mat-sidenav>
+  </div>
+  </mat-drawer-content>
+</mat-drawer-container> -->

@@ -1,0 +1,16 @@
+<mat-toolbar>
+    <span>Chating: {{chatModelService.getModel().selectedChat.name}}</span>
+    <button mat-icon-button>
+      <mat-icon>phone</mat-icon>
+    </button>
+    <button mat-icon-button (click)="toggleInfo()">
+      <mat-icon>info</mat-icon>
+    </button>
+    <button mat-icon-button>
+      <mat-icon>settings</mat-icon>
+    </button>
+    <mat-form-field class="search-box">
+      <input matInput placeholder="Search">
+    </mat-form-field>
+  </mat-toolbar>
+  

@@ -1,0 +1,46 @@
+li {
+  display: block;
+}
+
+li a {
+  text-align: center;
+  cursor: pointer;
+}
+
+.user-list {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.image-area {
+  margin: 0;
+  padding: 0;
+}
+
+.user-list img {
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+}
+
+.user-name {
+  flex-grow: 1;
+  text-align: left;
+  font-size: 16px;
+}
+
+.status-icon {
+  position: relative;
+  left: -20px;
+  font-size: 10px;
+}
+
+.online {
+  color: green;
+}
+
+.offline {
+  color: red;
+}

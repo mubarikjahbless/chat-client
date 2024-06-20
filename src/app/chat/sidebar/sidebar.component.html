@@ -1,0 +1,29 @@
+<mat-toolbar>
+    <span>Chat</span>
+  </mat-toolbar>
+  <mat-nav-list>
+    <ul>
+    <li >All Unread</li>
+    <li>All Threads</li>
+    <li >Starred</li>
+    <li ><h2>Rooms</h2>
+      <a *ngFor="let room of rooms" class="user-list" (click)="onSelectedChannel(room)">
+        <div class="image-area">
+          <img matListAvatar src="assets/group.jpeg" alt="{{room.name}}'s avatar">
+        </div>
+        <span class="user-name">{{ room.name }}</span>
+      </a>
+    </li>
+    <li>
+      <h2>Direct Messages</h2>
+      <a *ngFor="let user of users" class="user-list" (click)="onChatSelected(user)">
+        <div class="image-area">
+          <img matListAvatar src="assets/test.jpg" alt="{{user.name}}'s avatar">
+          <mat-icon class="status-icon" [ngClass]="{'online': user.online, 'offline': !user.online}">circle</mat-icon>
+        </div>
+        <span class="user-name">{{ user.name }}</span>
+      </a>
+
+    </li>
+  </ul>
+  </mat-nav-list>
