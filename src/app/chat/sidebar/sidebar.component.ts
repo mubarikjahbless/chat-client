@@ -9,7 +9,7 @@ import { Socket } from 'ngx-socket-io';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
 })
-export class SidebarComponent {
+export class SidebarComponent implements OnInit{
 
   public users =  []
   public rooms = []
@@ -24,10 +24,24 @@ export class SidebarComponent {
 
     
    }
+  ngOnInit(): void {
+    this.socket.on('user-connected', (users)=>{
+      const uniqueUsers = new Set(users.map(item => item.id));
+
+    this.users = this.users.map(item => {      
+        return {
+            ...item,
+            online: uniqueUsers.has(item._id)
+        };
+    });
+    })
+
+    
+  }
 
   private getAllUsers(){
     this.authService.getUsers().subscribe((users)=>{
-     this.users = users
+     this.users = users     
     })
    }
 
