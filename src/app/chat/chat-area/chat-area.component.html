@@ -1,0 +1,29 @@
+@if (openChat){
+<div class="chat-container">
+  <div *ngFor="let message of messages">
+   @if(message.sender?.["_id"]===authService.currentUser.id ||message.sender===authService.currentUser.id ){
+    <div class="message right">
+      <div class="message-content">{{ message.content.text }}</div>
+     </div>
+   }@else { 
+      <div class="message left">
+        <div class="message-content">
+          <h3 style="background-color: green;">{{message.sender.name}}:</h3>
+          {{ message.content.text }}
+        </div>
+      </div>
+    }
+</div>
+  </div>
+  
+  <div class="chat-input">
+    <mat-form-field class="input-field">
+      <textarea matInput [(ngModel)]="message" placeholder="Type your message..."></textarea>
+    </mat-form-field>
+    <button mat-icon-button (click)="onSendMessage()">
+      <mat-icon>send</mat-icon>
+    </button>
+  </div>
+}@else {
+   <p class="empty-chat">Select channel or a friend to chat</p>
+}

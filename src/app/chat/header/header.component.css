@@ -1,0 +1,10 @@
+.mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .search-box {
+    flex: 0 0 200px;
+  }
+  
