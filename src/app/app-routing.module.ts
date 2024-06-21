@@ -10,8 +10,6 @@ const routes: Routes = [
     children: [
       {path: '', redirectTo: 'chat', pathMatch: 'full'},
       {path: 'chat', loadChildren: () => import('./chat/chat.module').then(m => m.ChatModule)},
-      {path: 'chat-room', loadChildren: () => import('./pages/chat-room/chat-room.module').then(m => m.ChatRoomPageModule)},
-      {path: 'chat-private', loadChildren: () => import('./pages/chat-private/chat-private.module').then(m => m.ChatPrivatePageModule)},
       ]
       },
   {path: 'login', loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule), canActivate: [IsNotLoggedInGuard]}, // <2>

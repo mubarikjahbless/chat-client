@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { NavController, ToastController } from '@ionic/angular';
 import { environment } from '../../environments/environment';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { User } from '../models/user';
 import { LoggedInService } from './logged-in.service';
 import { Observable, map } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -20,8 +20,7 @@ export class AuthService {
   }
 
   constructor(private http: HttpClient,
-    private toastCtrl: ToastController,
-    private navCtrl: NavController,
+    private router: Router,
     private jwtHelper: JwtHelperService,
     private loggedInSvc: LoggedInService) { } 
 
@@ -30,7 +29,8 @@ export class AuthService {
            
       sessionStorage.setItem('user_token', response.data.token);
       this.loggedInSvc.loggedIn$.next(true);
-      this.navCtrl.navigateRoot('/select-room');
+      this.router.navigate(['/chat']);
+
     });
   }
 
@@ -38,13 +38,15 @@ export class AuthService {
     this.http.post(environment.apiUrl + 'auth/logout', null).subscribe(resp => {
       sessionStorage.removeItem('user_token');
       this.loggedInSvc.loggedIn$.next(false);
-      this.navCtrl.navigateRoot('/login');
+      this.router.navigate(['/login']);
+
     });
   }
 
   signUp(credentials) { 
     this.http.post<{ token: string }>(environment.apiUrl + 'auth/sign-up', credentials).subscribe(() => {
-      this.navCtrl.navigateRoot('/login');
+      this.router.navigate(['/login']);
+
     });
   }
 

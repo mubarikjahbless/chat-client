@@ -1,0 +1,35 @@
+
+
+html, body, .container {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .content {
+    width: 100%;
+    max-width: 500px; /* Adjust as needed */
+    padding: 16px;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .padding {
+    padding-top: 16px;
+    text-align: center;
+  }
+  
+  button {
+    margin-top: 8px;
+  }

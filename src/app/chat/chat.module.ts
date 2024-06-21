@@ -12,7 +12,6 @@ import { MatCardModule} from '@angular/material/card';
 import { MatButtonToggleModule} from '@angular/material/button-toggle';
 import {  MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { IonicModule } from '@ionic/angular';
 import { ChatComponent } from './chat.component';
 import { TruncatePipe } from './truncate.pipe';
 import { HeaderComponent } from './header/header.component';
@@ -40,7 +39,6 @@ const routes: Routes = [
     MatToolbarModule,
     MatDividerModule,
     MatListModule,
-    IonicModule,
     MatSidenavModule,
     RouterModule.forChild(routes)
   ],

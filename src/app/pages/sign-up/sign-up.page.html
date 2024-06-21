@@ -1,4 +1,33 @@
-<ion-content>
+
+<div class="container">
+  <div class="content">
+    <mat-card>
+      <mat-card-content>
+        <form #f="ngForm" (submit)="authSvc.signUp(credentials)">
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Username</mat-label>
+            <input matInput name="nickname" [(ngModel)]="credentials.name" required minlength="5">
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" name="password" [(ngModel)]="credentials.password" #password="ngModel" required minlength="6">
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Confirm Password</mat-label>
+            <input matInput type="password" name="confirmPassword" [(ngModel)]="credentials.confirmPassword" [required]="true" minlength="6">
+          </mat-form-field>
+          <div class="padding">
+            <button mat-raised-button color="primary" type="submit" [disabled]="f.invalid">Sign Up</button>
+            <button hidden type="submit" [disabled]="f.invalid"></button>
+            <button mat-button routerLink="/login">Login</button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<!-- <ion-content>
   <ion-row class="ion-justify-content-center">
     <ion-col sizeXl="3" sizeLg="4" sizeMd="6" sizeSm="9" sizeXs="12">
       <ion-card>
@@ -28,4 +57,4 @@
       </ion-card>
     </ion-col>
   </ion-row>
-</ion-content>
+</ion-content> -->
